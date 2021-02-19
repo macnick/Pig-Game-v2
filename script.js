@@ -34,6 +34,9 @@ let playing;
 
 const newGame = () => {
   playing = true;
+  pl0.classList.remove('player--winner');
+  pl1.classList.remove('player--winner');
+  pl0.classList.add('player--active');
   score0.innerText = '0';
   score1.innerText = '0';
   current0.innerText = '0';
@@ -89,7 +92,7 @@ const holdScore = () => {
 };
 
 const checkWinner = () => {
-  if (currentPlayer.hold >= 50) {
+  if (currentPlayer.hold >= 100) {
     return true;
   }
 };
