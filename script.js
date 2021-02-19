@@ -92,7 +92,7 @@ const holdScore = () => {
 };
 
 const checkWinner = () => {
-  if (currentPlayer.hold >= 50) {
+  if (currentPlayer.hold >= 100) {
     return true;
   }
 };
