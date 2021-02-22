@@ -116,4 +116,4 @@ newBtn.addEventListener('click', newGame);
 keepBtn.addEventListener('click', holdScore);
 rollBtn.addEventListener('click', rollDice);
 
-module.exports = checkWinner;
+module.exports = { checkWinner, rollDice };
