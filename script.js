@@ -85,16 +85,17 @@ const holdScore = () => {
     currentPlayer == p1
       ? (score0.innerText = p1.hold)
       : (score1.innerText = p2.hold);
-    if (checkWinner()) displayWinner();
+    if (checkWinner(currentPlayer)) displayWinner();
     resetScore();
     switchPlayer();
   }
 };
 
-const checkWinner = () => {
+const checkWinner = currentPlayer => {
   if (currentPlayer.hold >= 100) {
     return true;
   }
+  return false;
 };
 
 const switchPlayer = () => {
@@ -114,3 +115,5 @@ const displayWinner = () => {
 newBtn.addEventListener('click', newGame);
 keepBtn.addEventListener('click', holdScore);
 rollBtn.addEventListener('click', rollDice);
+
+module.exports = checkWinner;
