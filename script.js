@@ -1,20 +1,5 @@
 'use strict';
 
-const newBtn = document.querySelector('.btn--new');
-const rollBtn = document.querySelector('.btn--roll');
-const keepBtn = document.querySelector('.btn--hold');
-const dice = document.querySelector('.dice');
-
-const score0 = document.getElementById('score--0');
-const score1 = document.getElementById('score--1');
-const current0 = document.getElementById('current--0');
-const current1 = document.getElementById('current--1');
-
-const pl0 = document.querySelector('.player--0');
-const pl1 = document.querySelector('.player--1');
-
-dice.classList.add('hidden');
-
 class Player {
   constructor(name) {
     this.current = 0;
@@ -32,7 +17,31 @@ let p2 = new Player('player--1');
 let currentPlayer = p1;
 let playing;
 
+let newBtn, rollBtn, keepBtn, dice;
+
+let score0, score1, current0, current1;
+
+let pl0, pl1;
+
 const newGame = () => {
+  newBtn = document.querySelector('.btn--new');
+  rollBtn = document.querySelector('.btn--roll');
+  keepBtn = document.querySelector('.btn--hold');
+  dice = document.querySelector('.dice');
+
+  score0 = document.getElementById('score--0');
+  score1 = document.getElementById('score--1');
+  current0 = document.getElementById('current--0');
+  current1 = document.getElementById('current--1');
+
+  pl0 = document.querySelector('.player--0');
+  pl1 = document.querySelector('.player--1');
+
+  dice.classList.add('hidden');
+
+  keepBtn.addEventListener('click', holdScore);
+  rollBtn.addEventListener('click', rollDice);
+
   playing = true;
   pl0.classList.remove('player--winner');
   pl1.classList.remove('player--winner');
@@ -112,8 +121,6 @@ const displayWinner = () => {
   playing = false;
 };
 
-newBtn.addEventListener('click', newGame);
-keepBtn.addEventListener('click', holdScore);
-rollBtn.addEventListener('click', rollDice);
+// newBtn.addEventListener('click', newGame);
 
 module.exports = { checkWinner, rollDice };
